@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Policy</title>
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  {{> header}}
+
+  <header>
+    <h1>Edit Policy</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/policies">Policies</a></li>
+      <li><a href="/claims">Claims</a></li>
+    </ul>
+  </nav>
+
+  <!-- Action updated to use POST method and route for policy update -->
+  <form action="/policies/{{policy._id}}/edit" method="POST">
+    <input type="text" name="policyNumber" value="{{policy.policyNumber}}" placeholder="Policy Number" required>
+    <input type="text" name="type" value="{{policy.type}}" placeholder="Policy Type" required>
+    <input type="number" name="premium" value="{{policy.premium}}" placeholder="Premium Amount" required>
+    <input type="text" name="status" value="{{policy.status}}" placeholder="Status" required>
+    <select name="user" required>
+      {{#each users}}
+        <option value="{{this._id}}" {{#if (eq this._id ../policy.user._id)}}selected{{/if}}>
+          {{this.name}}
+        </option>
+      {{/each}}
+    </select>
+    <button type="submit">Update Policy</button>
+  </form>
+
+  {{> footer}}
+</body>
+</html>

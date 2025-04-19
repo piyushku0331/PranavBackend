@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policies List</title>
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  {{> header}} <!-- Include header partial -->
+
+  <header>
+    <h1>Policies List</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/claims">Claims</a></li>
+      <li><a href="/policies/new">Create New Policy</a></li>
+    </ul>
+  </nav>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Policy Number</th>
+        <th>Policy Holder</th>
+        <th>Policy Type</th>
+        <th>Coverage Amount</th>
+        <th>Premium</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each policies}}
+        <tr>
+          <td>{{this.policyNumber}}</td>
+          <td>{{this.policyHolder.name}}</td> <!-- Assuming 'policyHolder' is populated with a User object -->
+          <td>{{this.policyType}}</td>
+          <td>{{this.coverageAmount}}</td>
+          <td>{{this.premium}}</td>
+          <td>{{this.startDate}}</td>
+          <td>{{this.endDate}}</td>
+          <td>
+            <a href="/policies/{{this._id}}/edit">Edit</a> |
+            <a href="/policies/{{this._id}}/delete">Delete</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{> footer}} <!-- Include footer partial -->
+</body>
+</html>

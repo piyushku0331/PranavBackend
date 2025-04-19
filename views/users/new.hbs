@@ -1,0 +1,44 @@
+<!-- views/users/new.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New User</title>
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  {{> header}} <!-- Include header partial -->
+
+  <header>
+    <h1>Create New User</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/policies">Policies</a></li>
+      <li><a href="/claims">Claims</a></li>
+      <li><a href="/users">Users List</a></li>
+    </ul>
+  </nav>
+
+  <form action="/users" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="phone">Phone:</label>
+    <input type="text" name="phone" id="phone" required>
+
+    <label for="address">Address:</label>
+    <textarea name="address" id="address" required></textarea>
+
+    <button type="submit">Create User</button>
+  </form>
+
+  {{> footer}} <!-- Include footer partial -->
+</body>
+</html>

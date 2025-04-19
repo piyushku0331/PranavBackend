@@ -1,0 +1,41 @@
+<!-- views/policies/new.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Policy</title>
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  {{> header}} <!-- Include header partial -->
+
+  <header>
+    <h1>Create New Policy</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/claims">Claims</a></li>
+      <li><a href="/policies">Policies List</a></li>
+    </ul>
+  </nav>
+
+  <form action="/policies" method="POST">
+    <label for="policyName">Policy Name:</label>
+    <input type="text" name="policyName" id="policyName" required>
+
+    <label for="policyNumber">Policy Number:</label>
+    <input type="text" name="policyNumber" id="policyNumber" required>
+
+    <label for="coverage">Coverage:</label>
+    <textarea name="coverage" id="coverage" required></textarea>
+
+    <button type="submit">Create Policy</button>
+  </form>
+
+  {{> footer}} <!-- Include footer partial -->
+</body>
+</html>

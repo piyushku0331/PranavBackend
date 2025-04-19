@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{{title}}}</title>
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  {{> header}}  <!-- Include header partial -->
+
+  <header>
+    <h1>Welcome to the Insurance Management System</h1>
+  </header>
+
+  <section class="intro">
+    <h2>Manage Users, Policies, and Claims</h2>
+    <p>Our Insurance Management System helps you manage users, policies, and claims efficiently.</p>
+    <p>Get started by navigating through the sections below:</p>
+  </section>
+
+  <nav>
+    <ul>
+      <li><a href="/users">View Users</a></li>
+      <li><a href="/policies">View Policies</a></li>
+      <li><a href="/claims">View Claims</a></li>
+      <li><a href="/users/new">Create New User</a></li>
+      <li><a href="/policies/new">Create New Policy</a></li>
+      <li><a href="/claims/new">Create New Claim</a></li>
+    </ul>
+  </nav>
+
+  {{> footer}}  <!-- Include footer partial -->
+</body>
+</html>

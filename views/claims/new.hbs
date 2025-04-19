@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create New Claim</title>
+  <link rel="stylesheet" href="/index.css" />
+</head>
+<body>
+  {{> header}}
+
+  <header>
+    <h1>Create New Claim</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/policies">Policies</a></li>
+      <li><a href="/claims">Claims List</a></li>
+    </ul>
+  </nav>
+
+  <form action="/claims" method="POST">
+    <label for="claimNumber">Claim Number:</label>
+    <input type="text" name="claimNumber" id="claimNumber" required />
+
+    <label for="policy">Select Policy:</label>
+    <select name="policy" id="policy" required>
+      <option value="" disabled selected>Select a policy</option>
+      {{#each policies}}
+        <option value="{{this._id}}">{{this.policyName}} ({{this.policyNumber}})</option>
+      {{/each}}
+    </select>
+
+    <label for="claimAmount">Claim Amount:</label>
+    <input type="number" name="claimAmount" id="claimAmount" required />
+
+    <label for="claimStatus">Claim Status:</label>
+    <input type="text" name="claimStatus" id="claimStatus" required />
+
+    <button type="submit">Submit Claim</button>
+  </form>
+
+  {{> footer}}
+</body>
+</html>

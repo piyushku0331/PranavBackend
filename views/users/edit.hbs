@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit User</title>
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  {{> header}}
+
+  <header>
+    <h1>Edit User</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/policies">Policies</a></li>
+      <li><a href="/claims">Claims</a></li>
+    </ul>
+  </nav>
+
+  <!-- No method override used. Changed action to match POST route -->
+  <form action="/users/{{user._id}}/edit" method="POST">
+    <input type="text" name="name" value="{{user.name}}" placeholder="Full Name" required>
+    <input type="email" name="email" value="{{user.email}}" placeholder="Email" required>
+    <input type="text" name="phone" value="{{user.phone}}" placeholder="Phone Number" required>
+    <input type="text" name="address" value="{{user.address}}" placeholder="Address" required>
+    <button type="submit">Update User</button>
+  </form>
+
+  {{> footer}}
+</body>
+</html>

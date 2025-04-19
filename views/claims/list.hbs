@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claims List</title>
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  {{> header}}  <!-- Include the header partial -->
+
+  <header>
+    <h1>Claims List</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/policies">Policies</a></li>
+      <li><a href="/claims/new">Create New Claim</a></li>
+    </ul>
+  </nav>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Claim Number</th>
+        <th>Policy Number</th>
+        <th>Claim Amount</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each claims}}
+        <tr>
+          <td>{{this.claimNumber}}</td>
+          <td>{{this.policy.policyNumber}}</td> <!-- Assuming 'policy' is populated with a Policy object -->
+          <td>{{this.claimAmount}}</td>
+          <td>{{this.claimStatus}}</td>
+          <td>
+            <a href="/claims/{{this._id}}/edit">Edit</a> |
+            <a href="/claims/{{this._id}}/delete">Delete</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{> footer}}  <!-- Include the footer partial -->
+</body>
+</html>

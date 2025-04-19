@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Claim</title>
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  {{> header}}
+
+  <header>
+    <h1>Edit Claim</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/policies">Policies</a></li>
+      <li><a href="/claims">Claims</a></li>
+    </ul>
+  </nav>
+
+  <!-- Updated form action to remove _method=PUT -->
+  <form action="/claims/{{claim._id}}/edit" method="POST">
+    <input type="text" name="claimNumber" value="{{claim.claimNumber}}" placeholder="Claim Number" required>
+    <input type="number" name="claimAmount" value="{{claim.claimAmount}}" placeholder="Claim Amount" required>
+    <input type="text" name="claimStatus" value="{{claim.claimStatus}}" placeholder="Status" required>
+    <select name="policy" required>
+      {{#each policies}}
+        <option value="{{this._id}}" {{#if (eq this._id ../claim.policy._id)}}selected{{/if}}>
+          {{this.policyNumber}}
+        </option>
+      {{/each}}
+    </select>
+    <button type="submit">Update Claim</button>
+  </form>
+
+  {{> footer}}
+</body>
+</html>

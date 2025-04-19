@@ -1,0 +1,238 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600;700&display=swap');
+
+/* CSS Variables for Color Palette */
+:root {
+  --bg-dark: #0f111a;
+  --surface: rgba(255, 255, 255, 0.05);
+  --accent: #82c0ff;
+  --hover-accent: #ff7f50;
+  --text-light: #f0f0f0;
+  --text-muted: #a0a0a0;
+  --border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(12px);
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  transition: background-color 0.3s ease;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  padding: 20px;
+  text-align: center;
+  animation: fadeInDown 1s ease-out;
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  color: var(--accent);
+}
+
+/* Navigation */
+nav {
+  background-color: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+  animation: fadeIn 1s ease-out;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--hover-accent);
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  animation: fadeInUp 1.2s ease;
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: var(--surface);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Form Styling - Enhanced */
+form {
+  background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  padding: 30px;
+  border-radius: 14px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 600px;
+  animation: formEnter 1s ease-in-out;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+form input,
+form select,
+form button {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0 20px;
+  background-color: rgba(255, 255, 255, 0.07);
+  color: var(--text-light);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.3s ease;
+}
+
+form input:focus,
+form select:focus {
+  border-color: var(--accent);
+  outline: none;
+  background-color: rgba(130, 192, 255, 0.05);
+}
+
+form button {
+  background: linear-gradient(to right, var(--hover-accent), #ff4b2b);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 8px;
+}
+
+form button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #ff6b3b, #ff2e1d);
+}
+
+/* Footer */
+footer {
+  background-color: var(--surface);
+  padding: 20px;
+  text-align: center;
+  color: var(--text-muted);
+  animation: fadeIn 2s ease-out;
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes formEnter {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  form {
+    padding: 20px;
+  }
+}
