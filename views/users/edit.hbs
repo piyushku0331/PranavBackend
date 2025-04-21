@@ -21,7 +21,7 @@
     </ul>
   </nav>
 
-  <!-- No method override used. Changed action to match POST route -->
+  
   <form action="/users/{{user._id}}/edit" method="POST">
     <input type="text" name="name" value="{{user.name}}" placeholder="Full Name" required>
     <input type="email" name="email" value="{{user.email}}" placeholder="Email" required>

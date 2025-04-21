@@ -1,7 +1,7 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600;700&display=swap');
 
-/* CSS Variables for Color Palette */
+
 :root {
   --bg-dark: #0f111a;
   --surface: rgba(255, 255, 255, 0.05);
@@ -13,7 +13,6 @@
   --glass-blur: blur(12px);
 }
 
-/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +28,7 @@ body {
   padding: 0;
 }
 
-/* Header */
+
 header {
   background: var(--surface);
   backdrop-filter: var(--glass-blur);
@@ -46,7 +45,7 @@ header h1 {
   color: var(--accent);
 }
 
-/* Navigation */
+
 nav {
   background-color: var(--surface);
   backdrop-filter: var(--glass-blur);
@@ -75,7 +74,7 @@ nav ul li a:hover {
   color: var(--hover-accent);
 }
 
-/* Table Styles */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -108,7 +107,7 @@ tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.07);
 }
 
-/* Form Styling - Enhanced */
+
 form {
   background: var(--surface);
   backdrop-filter: var(--glass-blur);
@@ -167,7 +166,7 @@ form button:hover {
   background: linear-gradient(to right, #ff6b3b, #ff2e1d);
 }
 
-/* Footer */
+
 footer {
   background-color: var(--surface);
   padding: 20px;
@@ -178,7 +177,7 @@ footer {
   border-top: 1px solid var(--border);
 }
 
-/* Animations */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -217,7 +216,7 @@ footer {
   }
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;

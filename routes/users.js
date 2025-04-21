@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-// GET: List all users
+
 router.get('/', async (req, res) => {
   try {
     const users = await User.find();
@@ -13,12 +13,12 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET: Show form to create a new user
+
 router.get('/new', (req, res) => {
   res.render('users/new');
 });
 
-// POST: Create a new user
+
 router.post('/', async (req, res) => {
   const { name, email, phone, address } = req.body;
   try {
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET: Edit a user
+
 router.get('/:id/edit', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -45,7 +45,7 @@ router.get('/:id/edit', async (req, res) => {
   }
 });
 
-// POST: Update a user (used instead of PUT since no method-override)
+
 router.post('/:id/edit', async (req, res) => {
   const { name, email, phone, address } = req.body;
   try {
@@ -64,7 +64,6 @@ router.post('/:id/edit', async (req, res) => {
   }
 });
 
-// DELETE: Delete a user
 router.get('/:id/delete', async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);

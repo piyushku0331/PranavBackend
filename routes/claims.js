@@ -3,7 +3,6 @@ const router = express.Router();
 const Claim = require('../models/Claim');
 const Policy = require('../models/Policy');
 
-// GET: List all claims
 router.get('/', async (req, res) => {
   try {
     const claims = await Claim.find().populate('policy');
@@ -14,7 +13,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET: Show form to create a new claim
 router.get('/new', async (req, res) => {
   try {
     const policies = await Policy.find();
@@ -25,7 +23,6 @@ router.get('/new', async (req, res) => {
   }
 });
 
-// POST: Create a new claim
 router.post('/', async (req, res) => {
   const { claimNumber, policy, claimAmount, claimStatus } = req.body;
   try {
@@ -38,7 +35,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET: Show form to edit a claim
 router.get('/:id/edit', async (req, res) => {
   try {
     const policies = await Policy.find();
@@ -53,7 +49,6 @@ router.get('/:id/edit', async (req, res) => {
   }
 });
 
-// POST: Update a claim (used instead of PUT since no method-override)
 router.post('/:id/edit', async (req, res) => {
   const { claimNumber, policy, claimAmount, claimStatus } = req.body;
   try {
@@ -72,7 +67,7 @@ router.post('/:id/edit', async (req, res) => {
   }
 });
 
-// DELETE: Delete a claim
+
 router.get('/:id/delete', async (req, res) => {
   try {
     const claim = await Claim.findByIdAndDelete(req.params.id);

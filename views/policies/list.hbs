@@ -39,7 +39,7 @@
       {{#each policies}}
         <tr>
           <td>{{this.policyNumber}}</td>
-          <td>{{this.policyHolder.name}}</td> <!-- Assuming 'policyHolder' is populated with a User object -->
+          <td>{{this.policyHolder.name}}</td> 
           <td>{{this.policyType}}</td>
           <td>{{this.coverageAmount}}</td>
           <td>{{this.premium}}</td>
@@ -54,6 +54,6 @@
     </tbody>
   </table>
 
-  {{> footer}} <!-- Include footer partial -->
+  {{> footer}} 
 </body>
 </html>

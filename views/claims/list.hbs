@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/index.css">
 </head>
 <body>
-  {{> header}}  <!-- Include the header partial -->
+  {{> header}}  
 
   <header>
     <h1>Claims List</h1>
@@ -36,7 +36,7 @@
       {{#each claims}}
         <tr>
           <td>{{this.claimNumber}}</td>
-          <td>{{this.policy.policyNumber}}</td> <!-- Assuming 'policy' is populated with a Policy object -->
+          <td>{{this.policy.policyNumber}}</td> 
           <td>{{this.claimAmount}}</td>
           <td>{{this.claimStatus}}</td>
           <td>
@@ -48,6 +48,6 @@
     </tbody>
   </table>
 
-  {{> footer}}  <!-- Include the footer partial -->
+  {{> footer}}  
 </body>
 </html>

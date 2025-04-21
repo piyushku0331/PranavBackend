@@ -3,7 +3,6 @@ const router = express.Router();
 const Policy = require('../models/Policy');
 const User = require('../models/User');
 
-// GET: List all policies
 router.get('/', async (req, res) => {
   try {
     const policies = await Policy.find().populate('policyHolder');
@@ -14,7 +13,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET: Show form to create a new policy
 router.get('/new', async (req, res) => {
   try {
     const users = await User.find();
@@ -38,7 +36,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET: Edit a policy
 router.get('/:id/edit', async (req, res) => {
   try {
     const users = await User.find();
@@ -53,7 +50,6 @@ router.get('/:id/edit', async (req, res) => {
   }
 });
 
-// POST: Update a policy (used instead of PUT since no method-override)
 router.post('/:id/edit', async (req, res) => {
   const { policyNumber, policyHolder, policyType, coverageAmount, premium, startDate, endDate } = req.body;
   try {
@@ -72,7 +68,7 @@ router.post('/:id/edit', async (req, res) => {
   }
 });
 
-// DELETE: Delete a policy
+
 router.get('/:id/delete', async (req, res) => {
   try {
     const policy = await Policy.findByIdAndDelete(req.params.id);
